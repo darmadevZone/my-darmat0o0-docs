@@ -15,15 +15,10 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v4
+      - uses: oven-sh/setup-bun@v2
         with:
-          node-version: 18
-          cache: yarn
-
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-      - name: Build website
-        run: yarn build
+          bun-version: 1.2.0
+      - run: bun install --frozen-lockfilee
 
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3
