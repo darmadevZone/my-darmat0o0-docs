@@ -10,14 +10,14 @@ const config: Config = {
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
-  url: "https://darmadevzone.github.io/my-darmat0o0-docs/",
+  url: "https://darmadevzone.github.io/",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/my-darmat0o0-docs/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "darmat", // Usually your GitHub org/user name.
+  organizationName: "darmaT0o0-docs", // Usually your GitHub org/user name.
   projectName: "my-darmat0o0-docs", // Usually your repo name.
 
   onBrokenLinks: "throw",
