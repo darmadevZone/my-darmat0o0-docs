@@ -19,6 +19,8 @@ jobs:
         with:
           bun-version: 1.2.0
       - run: bun install --frozen-lockfilee
+      - name: Build my site
+        run: bun run build
 
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3
