@@ -19,6 +19,12 @@ jobs:
         with:
           bun-version: 1.2.0
       - run: bun install --frozen-lockfilee
+      - name: write environment variables
+        run: |
+          touch .env
+          echo "ALGOLIA_APP_ID=${{ secrets.ALGOLIA_APP_ID }}" >> .env
+          echo "ALGOLIA_SEARCH_API_KEY=${{ secrets.ALGOLIA_SEARCH_API_KEY }}" >> .env
+          echo "ALGOLIA_INDEX_NAME=${{ secrets.ALGOLIA_INDEX_NAME }}" >> .env
       - name: Build my site
         run: bun run build
 
