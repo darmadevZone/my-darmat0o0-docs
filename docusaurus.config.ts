@@ -1,6 +1,7 @@
 import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
+import "dotenv/config";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -68,7 +69,7 @@ const config: Config = {
     // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
     navbar: {
-      title: "My Site",
+      title: "My Developer Zone by darmat0o0",
       logo: {
         alt: "My Site Logo",
         src: "img/logo.svg",
@@ -82,7 +83,7 @@ const config: Config = {
         },
         { to: "/blog", label: "Blog", position: "left" },
         {
-          href: "https://github.com/facebook/docusaurus",
+          href: "https://github.com/darmadevZone/my-darmat0o0-docs",
           label: "GitHub",
           position: "right",
         },
@@ -136,6 +137,44 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+    },
+    algolia: {
+      // The application ID provided by Algolia
+      appId: process.env.ALGOLIA_APP_ID,
+
+      // Public API key: it is safe to commit it
+      apiKey: process.env.ALGOLIA_SEARCH_API_KEY,
+      indexName: process.env.ALGOLIA_INDEX_NAME,
+
+      //indexName: process.env.ALGOLIA_INDEX_NAME,
+
+      // Optional: see doc section below
+      contextualSearch: true,
+
+      // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
+      //externalUrlRegex: "external\\.com|domain\\.com",
+
+      // Optional: Replace parts of the item URLs from Algolia. Useful when using the same search index for multiple deployments using a different baseUrl. You can use regexp or string in the `from` param. For example: localhost:3000 vs myCompany.com/docs
+      replaceSearchResultPathname: {
+        from: "/docs/", // or as RegExp: /\/docs\//
+        to: "/",
+      },
+
+      // Optional: Algolia search parameters
+      searchParameters: {
+        hitsPerPage: 10,
+        ranking: ["words", "typo", "proximity", "attribute", "exact", "custom"],
+        ruleContexts: ["ja"],
+      },
+
+      // Optional: path for search page that enabled by default (`false` to disable it)
+      searchPagePath: "/",
+
+      // Optional: whether the insights feature is enabled or not on Docsearch (`false` by default)
+      insights: true,
+
+      //... other Algolia params
+      //
     },
   } satisfies Preset.ThemeConfig,
 };
